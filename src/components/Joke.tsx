@@ -21,10 +21,10 @@ const Joke = function(): any {
   const { category }: any = useParams();
   const { loading, data } = useQuery(GET_RANDOM_JOKE, {
     variables: { category: `${category}` },
-  }); 
+  });
   if (loading) return <Loader />;
   const { random }: any = data;
-  
+
   return (
     <React.Fragment>
       {random && (
@@ -32,7 +32,7 @@ const Joke = function(): any {
           <Flex justify="center">
             <Image src={random.icon_url} alt={random.icon_url} />
           </Flex>
-          <Flex>
+          <Flex justify="center">
             <Text fontSize="30px" textAlign="center">
               {random.value}
             </Text>
@@ -53,7 +53,7 @@ const Joke = function(): any {
           </Flex>
         </Box>
       )}
-      
+
     </React.Fragment>
   );
 }

@@ -8,7 +8,7 @@ const Loader = () => {
         top="40%"
         left="45%"
     >
-      <CircularProgress isIndeterminate color="green" size="120px"></CircularProgress>
+      <CircularProgress isIndeterminate color="teal" size="120px"></CircularProgress>
     </Flex>
   );
 };

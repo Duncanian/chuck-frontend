@@ -1,12 +1,11 @@
 import React from 'react';
 import {useQuery, gql} from '@apollo/client';
-// import {gql} from 'apollo-boost';
 import {Link} from 'react-router-dom';
 import Loader from './Loader';
-import { Heading, Flex, Text, Image, Box, List, ListItem, Grid, SimpleGrid } from "@chakra-ui/core";
+import { Heading, Flex, Text, Box, SimpleGrid } from "@chakra-ui/core";
 
 const CategoryContainer = () => {
-  const {loading, data, error} = useQuery(gql`
+  const {loading, data} = useQuery(gql`
     query {
       category {
         categories
@@ -36,7 +35,7 @@ const CategoryContainer = () => {
               </Box>
             );
           })}
-          
+
         </SimpleGrid>
       </Box>
     </React.Fragment>
