@@ -1,8 +1,7 @@
 import React from 'react';
-import {useQuery} from '@apollo/react-hooks';
+import {useQuery, gql} from '@apollo/react-hooks';
 import { useParams, Link } from "react-router-dom";
-import {gql} from 'apollo-boost';
-import { Flex, Text, Image, Box, Button } from "@chakra-ui/core";
+import { Flex, Text, Image, Box, Button, Icon } from "@chakra-ui/core";
 import Loader from './Loader';
 
 const GET_RANDOM_JOKE = gql`
@@ -19,7 +18,7 @@ const GET_RANDOM_JOKE = gql`
 
 const Joke = function(): any {
   const { category }: any = useParams();
-  const { loading, data } = useQuery(GET_RANDOM_JOKE, {
+  const { loading, data, refetch } = useQuery(GET_RANDOM_JOKE, {
     variables: { category: `${category}` },
   });
   if (loading) return <Loader />;
@@ -27,8 +26,13 @@ const Joke = function(): any {
 
   return (
     <React.Fragment>
+      <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
+        <Flex pos="absolute" top="15%" left="15%" cursor="pointer">
+          <Icon name="arrow-back" size="10%"/>
+        </Flex>
+      </Link>
       {random && (
-        <Box position="absolute" top="20%" left="23%" width="50%">
+        <Box pos="absolute" top="20%" left="23%" w="50%">
           <Flex justify="center">
             <Image src={random.icon_url} alt={random.icon_url} />
           </Flex>
@@ -39,17 +43,17 @@ const Joke = function(): any {
           </Flex>
 
           <Flex justify="center">
-            <Link to={'/'} style={{ textDecoration: 'none' }}>
-              <Button
+            <Button
                 size="md"
-                height="48px"
-                width="200px"
+                h="48px"
+                w="200px"
                 border="2px"
                 borderColor="teal.500"
+                cursor="pointer"
+                onClick={() => refetch()}
               >
-                Back to Home Page
+                See another joke
               </Button>
-            </Link>
           </Flex>
         </Box>
       )}

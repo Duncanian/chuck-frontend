@@ -5,11 +5,11 @@ import { Heading, Flex } from "@chakra-ui/core";
 export default (): any => (
   <Flex
     flexDirection="row"
-    padding="1rem"
+    p="0.5em"
     bg="teal.500"
     color="white"
     w="auto"
-    position="absolute"
+    pos="absolute"
     top="0"
     left="0"
     right="0"

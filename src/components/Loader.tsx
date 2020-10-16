@@ -4,7 +4,7 @@ import { CircularProgress, Flex } from "@chakra-ui/core";
 const Loader = () => {
   return (
     <Flex
-        position="absolute"
+        pos="absolute"
         top="40%"
         left="45%"
     >

@@ -4,9 +4,9 @@ import {
 } from '@apollo/client';
 import {Route, Switch} from 'react-router-dom';
 import {client} from './apollo-client';
-import CategoryContainer from './components/CategoryContainer';
+import Category from './components/Category';
 import Header from './components/Header';
-import Joke from './components/Joke';
+import Joke from './components/RandomJoke';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <div className="main">
         <Header/>
         <Switch>
-          <Route exact path="/" component={CategoryContainer} />
+          <Route exact path="/" component={Category} />
           <Route path="/random/:category" component={Joke} />
         </Switch>
       </div>
