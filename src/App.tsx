@@ -15,7 +15,7 @@ function App() {
         <Header/>
         <Switch>
           <Route exact path="/" component={Category} />
-          <Route path="/random/:category" component={Joke} />
+          <Route path="/joke/:category" component={Joke} />
         </Switch>
       </div>
     </ApolloProvider>

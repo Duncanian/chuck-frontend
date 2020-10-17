@@ -20,7 +20,9 @@ const Joke = function(): any {
   const { category }: any = useParams();
   const { loading, data, refetch } = useQuery(GET_RANDOM_JOKE, {
     variables: { category: `${category}` },
+    notifyOnNetworkStatusChange: true,
   });
+  
   if (loading) return <Loader />;
   const { random }: any = data;
 

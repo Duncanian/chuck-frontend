@@ -29,7 +29,7 @@ const CategoryContainer = () => {
             data.category.categories.map(function (category: any):any {
             return (
               <Box bg="teal.500" h="50px">
-                <Link key={category} to={`/random/${category}`} style={{ textDecoration: 'none' }}>
+                <Link key={category} to={`/joke/${category}`} style={{ textDecoration: 'none' }}>
                   <Text color="white" textAlign="center">{category}</Text>
                 </Link>
               </Box>
